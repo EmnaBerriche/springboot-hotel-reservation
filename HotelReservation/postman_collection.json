@@ -1,0 +1,441 @@
+{
+	"info": {
+		"_postman_id": "b5e7f8a1-c3d2-4e5f-9a8b-1c2d3e4f5a6b",
+		"name": "API Réservation Hôtels",
+		"description": "Collection pour tester l'API de réservation d'hôtels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hôtels",
+			"item": [
+				{
+					"name": "Obtenir tous les hôtels",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/hotels",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "hotels"]
+						},
+						"description": "Récupère la liste de tous les hôtels"
+					}
+				},
+				{
+					"name": "Obtenir un hôtel par ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "hotels", "1"]
+						},
+						"description": "Récupère un hôtel spécifique par son ID"
+					}
+				},
+				{
+					"name": "Créer un hôtel",
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://localhost:8080/api/hotels",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "hotels"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Nouvel Hôtel\",\n    \"adresse\": \"123 Rue de la Paix, Lyon\"\n}"
+						},
+						"description": "Crée un nouvel hôtel"
+					}
+				},
+				{
+					"name": "Mettre à jour un hôtel",
+					"request": {
+						"method": "PUT",
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "hotels", "1"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nom\": \"Hôtel Royal Luxe\",\n    \"adresse\": \"15 Avenue des Champs-Élysées, Paris\"\n}"
+						},
+						"description": "Met à jour un hôtel existant"
+					}
+				},
+				{
+					"name": "Supprimer un hôtel",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:8080/api/hotels/3",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "hotels", "3"]
+						},
+						"description": "Supprime un hôtel par son ID"
+					}
+				}
+			]
+		},
+		{
+			"name": "Chambres",
+			"item": [
+				{
+					"name": "Obtenir toutes les chambres",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres"]
+						},
+						"description": "Récupère la liste de toutes les chambres"
+					}
+				},
+				{
+					"name": "Obtenir une chambre par ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "1"]
+						},
+						"description": "Récupère une chambre spécifique par son ID"
+					}
+				},
+				{
+					"name": "Obtenir les chambres par hôtel",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/hotel/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "hotel", "1"]
+						},
+						"description": "Récupère toutes les chambres d'un hôtel spécifique"
+					}
+				},
+				{
+					"name": "Obtenir les chambres par type",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/type/Standard",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "type", "Standard"]
+						},
+						"description": "Récupère toutes les chambres d'un type spécifique"
+					}
+				},
+				{
+					"name": "Obtenir les chambres par prix maximum",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/prix?prixMax=100",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "prix"],
+							"query": [
+								{
+									"key": "prixMax",
+									"value": "100"
+								}
+							]
+						},
+						"description": "Récupère toutes les chambres dont le prix est inférieur ou égal au prix maximum spécifié"
+					}
+				},
+				{
+					"name": "Obtenir les chambres disponibles",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/disponibles?hotelId=1&dateEntree=2025-06-01&dateSortie=2025-06-05",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "disponibles"],
+							"query": [
+								{
+									"key": "hotelId",
+									"value": "1"
+								},
+								{
+									"key": "dateEntree",
+									"value": "2025-06-01"
+								},
+								{
+									"key": "dateSortie",
+									"value": "2025-06-05"
+								}
+							]
+						},
+						"description": "Récupère toutes les chambres disponibles pour un hôtel et une période spécifiques"
+					}
+				},
+				{
+					"name": "Créer une chambre",
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": \"301\",\n    \"type\": \"Suite Présidentielle\",\n    \"prix\": 350.0,\n    \"disponible\": true,\n    \"hotel\": {\n        \"id\": 1\n    }\n}"
+						},
+						"description": "Crée une nouvelle chambre"
+					}
+				},
+				{
+					"name": "Mettre à jour une chambre",
+					"request": {
+						"method": "PUT",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "1"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numero\": \"101\",\n    \"type\": \"Standard Plus\",\n    \"prix\": 90.0,\n    \"disponible\": true,\n    \"hotel\": {\n        \"id\": 1\n    }\n}"
+						},
+						"description": "Met à jour une chambre existante"
+					}
+				},
+				{
+					"name": "Supprimer une chambre",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:8080/api/chambres/9",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "chambres", "9"]
+						},
+						"description": "Supprime une chambre par son ID"
+					}
+				}
+			]
+		},
+		{
+			"name": "Réservations",
+			"item": [
+				{
+					"name": "Obtenir toutes les réservations",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations"]
+						},
+						"description": "Récupère la liste de toutes les réservations"
+					}
+				},
+				{
+					"name": "Obtenir une réservation par ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "1"]
+						},
+						"description": "Récupère une réservation spécifique par son ID"
+					}
+				},
+				{
+					"name": "Obtenir les réservations par chambre",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/chambre/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "chambre", "1"]
+						},
+						"description": "Récupère toutes les réservations pour une chambre spécifique"
+					}
+				},
+				{
+					"name": "Obtenir les réservations par hôtel",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/hotel/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "hotel", "1"]
+						},
+						"description": "Récupère toutes les réservations pour un hôtel spécifique"
+					}
+				},
+				{
+					"name": "Vérifier la disponibilité d'une chambre",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/disponibilite?chambreId=1&dateEntree=2025-06-01&dateSortie=2025-06-05",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "disponibilite"],
+							"query": [
+								{
+									"key": "chambreId",
+									"value": "1"
+								},
+								{
+									"key": "dateEntree",
+									"value": "2025-06-01"
+								},
+								{
+									"key": "dateSortie",
+									"value": "2025-06-05"
+								}
+							]
+						},
+						"description": "Vérifie si une chambre est disponible pour une période spécifique"
+					}
+				},
+				{
+					"name": "Créer une réservation",
+					"request": {
+						"method": "POST",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateEntree\": \"2025-06-10\",\n    \"dateSortie\": \"2025-06-15\",\n    \"nomClient\": \"Jean Dupont\",\n    \"emailClient\": \"jean.dupont@example.com\",\n    \"chambre\": {\n        \"id\": 1\n    }\n}"
+						},
+						"description": "Crée une nouvelle réservation"
+					}
+				},
+				{
+					"name": "Annuler une réservation",
+					"request": {
+						"method": "PUT",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/1/annuler",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "1", "annuler"]
+						},
+						"description": "Annule une réservation existante"
+					}
+				},
+				{
+					"name": "Mettre à jour une réservation",
+					"request": {
+						"method": "PUT",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "1"]
+						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dateEntree\": \"2025-06-12\",\n    \"dateSortie\": \"2025-06-18\",\n    \"nomClient\": \"Jean Dupont\",\n    \"emailClient\": \"jean.dupont@example.com\",\n    \"chambre\": {\n        \"id\": 1\n    }\n}"
+						},
+						"description": "Met à jour une réservation existante"
+					}
+				},
+				{
+					"name": "Supprimer une réservation",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:8080/api/reservations/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "reservations", "1"]
+						},
+						"description": "Supprime une réservation par son ID"
+					}
+				}
+			]
+		}
+	]
+}
