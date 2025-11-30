@@ -1,0 +1,30 @@
+# Java / Spring Boot
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+out/
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+*.properties.local
+secret-*.yml
