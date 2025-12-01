@@ -8,7 +8,6 @@ This project demonstrates backend development using Spring MVC, JPA, and a clean
 - CRUD operations for rooms, customers, and reservations  
 - RESTful API design  
 - JPA/Hibernate persistence  
-- H2 in-memory database (default)
 
 ## 🛠 Tech Stack
 
@@ -16,7 +15,6 @@ This project demonstrates backend development using Spring MVC, JPA, and a clean
 - Spring Boot
 - Spring Web
 - Spring Data JPA
-- H2 Database
 - Maven
 
 ## ▶️ Run the Project
