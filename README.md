@@ -1,65 +1,50 @@
-Hotel Reservation API (Spring Boot)
+# Hotel Reservation API (Spring Boot)
 
-A simple Spring Boot REST API for managing hotel rooms, customers, and reservations.
+A simple Spring Boot REST API for managing hotel rooms, customers, and reservations.  
 This project demonstrates backend development using Spring MVC, JPA, and a clean layered architecture.
 
-🚀 Features
+## 🚀 Features
 
-CRUD operations for rooms, customers, and reservations
+- CRUD operations for rooms, customers, and reservations  
+- RESTful API design  
+- JPA/Hibernate persistence  
+- H2 in-memory database (default)
 
-RESTful API design
+## 🛠 Tech Stack
 
-JPA/Hibernate persistence
+- Java
+- Spring Boot
+- Spring Web
+- Spring Data JPA
+- H2 Database
+- Maven
 
-H2 in-memory database (default)
+## ▶️ Run the Project
 
-🛠 Tech Stack
-
-Java
-
-Spring Boot
-
-Spring Web
-
-Spring Data JPA
-
-H2 Database
-
-Maven
-
-▶️ Run the Project
+```bash
 mvn spring-boot:run
+```
 
-
-The application starts at:
+The application starts at:  
 http://localhost:8080
 
-📌 Example Endpoints
+## 📌 Example Endpoints
 
-Rooms
+### Rooms
+- `GET /api/rooms`
+- `POST /api/rooms`
 
-GET /api/rooms
+### Customers
+- `GET /api/customers`
+- `POST /api/customers`
 
-POST /api/rooms
+### Reservations
+- `GET /api/reservations`
+- `POST /api/reservations`
 
-Customers
+## 📂 Structure
 
-GET /api/customers
-
-POST /api/customers
-
-Reservations
-
-GET /api/reservations
-
-POST /api/reservations
-
-📂 Structure
-
-controller/ – REST endpoints
-
-service/ – business logic
-
-repository/ – JPA repositories
-
-entity/ – data models
+- `controller/` – REST endpoints
+- `service/` – business logic
+- `repository/` – JPA repositories
+- `entity/` – data models
